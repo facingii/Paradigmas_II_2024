@@ -20,7 +20,7 @@ public class Main {
         while (iterator.hasNext ()) {
             System.out.println (iterator.next ());
         }
-
+        
         for (Film f: collection) {
             System.out.println (f);
         }
