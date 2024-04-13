@@ -1,7 +1,6 @@
 package mx.uv.fiee.iinf.poo.mytextfield;
 
-import java.awt.Color;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -41,6 +40,26 @@ public class MyTextField extends JTextField implements KeyListener {
     @Override
     public void paint (Graphics g) {
         super.paint (g);
-    }
+//        g.setColor (Color.red);
+//        g.drawRect (getSize ().width - 25, getSize ().height - 30, 20, 20);
+//
+//        g.setColor(Color.red);
+//        g.fillRect (getSize ().width - 25, getSize ().height - 30, 20, 20);
+//
+//        g.dispose ();
 
+        try {
+            URL url = getClass().getResource ("/images/ico.png");
+            File file = new File (url.getPath ());
+            Image img = ImageIO.read (file);
+            int x = getSize ().width - 30;
+            int y = (getSize ().height - 24) / 2;
+            g.drawImage (img, x, y, null);
+            g.dispose ();
+        }
+        catch (NullPointerException | IOException ex) {
+            System.out.println (ex.getMessage ());
+        }
+
+    }
 }
